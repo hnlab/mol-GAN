@@ -1,0 +1,9 @@
+__pycache__
+storage/
+data/ChEMBL
+all_*
+ChEMBL25_SMI.json
+CHEMBL25_TEST_MOLS.h5
+CHEMBL25_TRAIN_MOLS.h5
+
+

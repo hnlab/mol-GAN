@@ -88,7 +88,7 @@ def load_and_process_property(gen_smi_filepath, property_savepath):
 
         df["MolWt"] = df.mol.map(Descriptors.MolWt)
         df["MolLogP"] = df.mol.map(Descriptors.MolLogP)
-        df["BertzCT"] = df.mol.map(Descriptors.MolLogP)
+        df["BertzCT"] = df.mol.map(Descriptors.BertzCT)
         df["TPSA"] = df.mol.map(Descriptors.TPSA)
         df["MolMR"] = df.mol.map(Descriptors.MolMR)
 

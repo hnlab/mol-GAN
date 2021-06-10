@@ -8,7 +8,9 @@ class Generator(nn.Module):
         super(Generator, self).__init__()
         self.data_shape = data_shape
 
-        self.latent_dim = int(np.prod(self.data_shape)) if latent_dim is None else latent_dim
+        self.latent_dim = (
+            int(np.prod(self.data_shape)) if latent_dim is None else latent_dim
+        )
 
         def block(in_feat, out_feat, normalize=True):
             layers = [nn.Linear(in_feat, out_feat)]
@@ -31,9 +33,9 @@ class Generator(nn.Module):
 
     def save(self, path):
         save_dict = {
-            'latent_dim': self.latent_dim,
-            'model': self.model.state_dict(),
-            'data_shape': self.data_shape,
+            "latent_dim": self.latent_dim,
+            "model": self.model.state_dict(),
+            "data_shape": self.data_shape,
         }
         torch.save(save_dict, path)
 
@@ -42,7 +44,7 @@ class Generator(nn.Module):
     @staticmethod
     def load(path):
         save_dict = torch.load(path)
-        G = Generator(save_dict['data_shape'], latent_dim=save_dict['latent_dim'])
+        G = Generator(save_dict["data_shape"], latent_dim=save_dict["latent_dim"])
         G.model.load_state_dict(save_dict["model"])
 
         return G
@@ -69,8 +71,8 @@ class Discriminator(nn.Module):
 
     def save(self, path):
         save_dict = {
-            'model': self.model.state_dict(),
-            'data_shape': self.data_shape,
+            "model": self.model.state_dict(),
+            "data_shape": self.data_shape,
         }
         torch.save(save_dict, path)
         return
@@ -78,7 +80,7 @@ class Discriminator(nn.Module):
     @staticmethod
     def load(path):
         save_dict = torch.load(path)
-        D = Discriminator(save_dict['data_shape'])
+        D = Discriminator(save_dict["data_shape"])
         D.model.load_state_dict(save_dict["model"])
 
         return D

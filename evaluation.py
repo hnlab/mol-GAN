@@ -12,6 +12,7 @@ rdBase.DisableLog("rdApp.*")
 
 import os
 import sys
+
 sys.path.append(os.path.join(RDConfig.RDContribDir, "SA_Score"))
 # now you can import sascore!
 import sascorer

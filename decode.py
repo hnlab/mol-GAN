@@ -10,6 +10,7 @@ from rdkit.Chem import AllChem, Draw
 from rdkit.Chem.Draw.MolDrawing import MolDrawing, DrawingOptions
 
 from ddc_pub import ddc_v3 as ddc
+
 rdBase.DisableLog("rdApp.*")
 
 
